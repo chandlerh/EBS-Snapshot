@@ -68,7 +68,7 @@
         }
 
         //Now we delete old ones
-        echo "Looking if we need to delete old snapshots...";
+        echo "Looking if we need to delete old snapshots...\n";
         $output = array();
         exec($EC2_TOOLS_PATH . 'ec2-describe-snapshots -K ' . $KEY . ' -C ' . $CERT . " | grep " . $VOLUME, $output);
 
@@ -90,9 +90,9 @@
 
         //Delete if there are more than $SNAP_TO_KEEP
         if (sizeof($snaps) > $SNAP_TO_KEEP) {
-            echo "More than " . $SNAP_TO_KEEP . "deleting some snapshots..."
+            echo "More than " . $SNAP_TO_KEEP . "deleting some snapshots...\n";
             for ($i = $SNAP_TO_KEEP; $i < sizeof($snaps); $i++) {
-                echo "Deleting snapshot " . $snaps[$i][1];
+                echo "Deleting snapshot " . $snaps[$i][1] . "\n";
                 exec($EC2_TOOLS_PATH . 'ec2-delete-snapshot ' . $snaps[$i][1] . ' -K ' . $KEY . ' -C ' . $CERT);
             }
         } else {

@@ -90,7 +90,7 @@
 
         //Delete if there are more than $SNAP_TO_KEEP
         if (sizeof($snaps) > $SNAP_TO_KEEP) {
-            echo "More than " . $SNAP_TO_KEEP . "deleting some snapshots...\n";
+            echo "More than " . $SNAP_TO_KEEP . " deleting some snapshots...\n";
             for ($i = $SNAP_TO_KEEP; $i < sizeof($snaps); $i++) {
                 echo "Deleting snapshot " . $snaps[$i][1] . "\n";
                 exec($EC2_TOOLS_PATH . 'ec2-delete-snapshot ' . $snaps[$i][1] . ' -K ' . $KEY . ' -C ' . $CERT);

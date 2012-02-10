@@ -74,7 +74,7 @@
 
                     echo "Creating snapshot.\n";
                     $output = array();
-                    exec($this->ec2ToolsPath . 'ec2-create-snapshot ' . $this->volume . ' -K ' . $this->key . ' -C ' . $this->key . ' -d ' . $this->snapDescription, $output);
+                    exec($this->ec2ToolsPath . 'ec2-create-snapshot ' . $this->volume . ' -K ' . $this->key . ' -C ' . $this->cert . ' -d ' . $this->snapDescription, $output);
                     print_r($output);
 
                     echo "unlocking tables.\n";

@@ -9,9 +9,7 @@ $cert - This is the Amazon cert you get from your Amazon account.
 
 $key - The matching key obtained from your Amazon account.
 
-$snapDescription - The description of your snapshot. It need to be 'something_' . date("Y-m-d"). THIS IS VERY IMPORTANT. If you look at the sorting
-			I explode the array of snapshots by the _ (underscore). And then I use that date to sort them. So make sure you have this
-			or the deleting old snapshots part of the script will not work.
+$snapDescription - The description of your snapshot. It need to be 'something_' . date("Y-m-d"). THIS IS VERY IMPORTANT. If you look at the sorting I explode the array of snapshots by the _ (underscore). And then I use that date to sort them. So make sure you have this or the deleting old snapshots part of the script will not work.
 
 $dbHost - The host of the database. Use the internal ip. Make sure your security groups are open on 22 and 3306 so this can work.
 

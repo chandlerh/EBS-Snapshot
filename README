@@ -1,1 +1,27 @@
 I uploaded an example file of how the php class is implemented. This can be added to cron to make backing up the database simple.
+
+### Understanding the Constructor ###
+public function __construct($ec2ToolsPath, $cert, $key, $snapDescription, $dbHost, $dbName, $dbUser, $dbPass, $volume, $snapToKeep)
+
+$ec2ToolsPath - This is the path to the tools so that we can run the correct command. I usually download my tools from this link:
+		 http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip&token=A80325AA4DAB186C80828ED5138633E3F49160D9
+
+$cert - This is the Amazon cert you get from your Amazon account.
+
+$key - The matching key obtained from your Amazon account.
+
+$snapDescription - The description of your snapshot. It need to be 'something_' . date("Y-m-d"). THIS IS VERY IMPORTANT. If you look at the sorting
+			I explode the array of snapshots by the _ (underscore). And then I use that date to sort them. So make sure you have this
+			or the deleting old snapshots part of the script will not work.
+
+$dbHost - The host of the database. Use the internal ip. Make sure your security groups are open on 22 and 3306 so this can work.
+
+$dbName - Name of the database to connect to.
+
+$dbUser - Database user who has permissions to connect.
+
+$dbPass - Password for $dbUser
+
+$volume - The volume to snapshot
+
+$snapToKeep - The number of snapshots to keep.

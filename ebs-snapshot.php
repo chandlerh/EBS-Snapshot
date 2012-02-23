@@ -3,7 +3,7 @@
     /**
      * @author Chandler Hoisington
      */
-    class EbsController {
+    class EbsSnapshot {
 
             private $ec2ToolsPath;
             private $cert;
@@ -47,9 +47,9 @@
             /**
              * Function to create and delete snapshots
              */
-            public function createAndDelete() {
+            public function run() {
                 $this->createSnapshot();
-                $this->deleteOldSnapshots();
+                $this->deleteSnapshots();
             }
 
 
@@ -95,7 +95,7 @@
             /**
              * Function to delete the old snapshots
              */
-            private function deleteOldSnapshots() {
+            private function deleteSnapshots() {
 
                 echo "Looking if we need to delete old snapshots...\n";
                 $output = array();
@@ -136,10 +136,10 @@
              * @param $sortValue
              * @return array
              */
-            private function mySort($multiArray, $sortValue) {
+            private function mySort($multiArray, $sortIndex) {
                 $i = 0;
                 foreach ($multiArray as $smallArray) {
-                    $dates[$i] = $smallArray[$sortValue];
+                    $dates[$i] = $smallArray[$sortIndex];
                     $i++;
                 }
 

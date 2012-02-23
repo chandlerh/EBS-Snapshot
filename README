@@ -3,7 +3,7 @@ I uploaded an example file of how the php class is implemented. This can be adde
 ### Understanding the Constructor ###
 public function __construct($ec2ToolsPath, $cert, $key, $snapDescription, $dbHost, $dbName, $dbUser, $dbPass, $volume, $snapToKeep)
 
-$ec2ToolsPath - This is the path to the tools so that we can run the correct command. I usually download my tools from this link:
+$ec2ToolsPath - This is the path to the tools so that we can run the correct command.
 
 $cert - This is the Amazon cert you get from your Amazon account.
 
